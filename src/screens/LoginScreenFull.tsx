@@ -30,11 +30,32 @@ const LoginScreenFull = () => {
             value={value}
             onChangeText={onChange}
             onBlur={onBlur}
-            placeholder="Email"
+            placeholder="Escribe tu email"
           />
         )}
       />
- 
+    {errors.email && <Text style={{ color: 'red'}}>{errors.email?.message}</Text>}
+      <Controller
+        control={control}
+        name="password"
+        render={({ field: { ref, onChange, onBlur, value } }) => (
+          <TextInput
+            ref={ref}
+            value={value}
+            onChangeText={onChange}
+            onBlur={onBlur}
+            placeholder="Escribe tu contraseña"
+            secureTextEntry
+          />
+        )}
+      />
+     {errors.password && <Text style={{ color: 'red'}}>{errors.password?.message}</Text>}
+      <Button
+        title={isSubmitting ? 'Enviando...' : 'Iniciar sesión'}
+        onPress={handleSubmit(onSubmit)}
+        disabled={isSubmitting}
+      />
+
     </View>
   )
 }
