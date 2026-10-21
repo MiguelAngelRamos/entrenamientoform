@@ -18,4 +18,25 @@ const LoginScreenFull = () => {
     console.log('Datos válidos del formulario:', data);
     // Aquí puedes hacer la llamada al backend con los datos validados
   }
+
+  return (
+    <View>
+      <Controller
+        control={control}
+        name="email"
+        render={({ field: { ref, onChange, onBlur, value } }) => (
+          <TextInput
+            ref={ref}
+            value={value}
+            onChangeText={onChange}
+            onBlur={onBlur}
+            placeholder="Email"
+          />
+        )}
+      />
+ 
+    </View>
+  )
 }
+
+export default LoginScreenFull;
