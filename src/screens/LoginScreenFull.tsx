@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import {useForm, Controller, SubmitHandler} from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {z} from 'zod';
@@ -20,7 +20,7 @@ const LoginScreenFull = () => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <Controller
         control={control}
         name="email"
@@ -40,3 +40,9 @@ const LoginScreenFull = () => {
 }
 
 export default LoginScreenFull;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', padding: 16 },
+  input: { borderWidth: 1, borderColor: '#ccc', padding: 10, marginBottom: 8 },
+  error: { color: 'red', marginBottom: 8 },
+});
