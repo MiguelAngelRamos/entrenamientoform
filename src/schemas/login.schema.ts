@@ -13,4 +13,4 @@ export const loginSchema = z.object({
   .min(8, { message: 'Mínimo 8 caracteres' })
 })
 
-export type loginSchemaValues = z.infer<typeof loginSchema>;
+export type loginSchema = z.infer<typeof loginSchema>;
